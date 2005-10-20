@@ -20,7 +20,7 @@ unlink map "t/logs/rec.$_", qw/1.in 1.out 2.in 2.out/;
     # XXX TODO FIXME should use File::Spec or whatever
     is($s->recorder_prefix, "t/logs/rec");
 
-    my $url = started_ok($s);
+    my $url = $s->started_ok("start up the web server");
 
     select(undef,undef,undef,0.2); # wait a sec
 
@@ -145,6 +145,6 @@ sub fetch {
 
 package MyServer;
 
-use base qw/HTTP::Server::Simple::Recorder HTTP::Server::Simple::CGI/;
+use base qw/Test::HTTP::Server::Simple HTTP::Server::Simple::Recorder HTTP::Server::Simple::CGI/;
 
 sub recorder_prefix { "t/logs/rec" } 

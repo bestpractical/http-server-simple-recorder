@@ -6,7 +6,7 @@ version_from ('lib/HTTP/Server/Simple/Recorder.pm');
 abstract_from('lib/HTTP/Server/Simple/Recorder.pm');
 license('perl');
 requires('Test::More');
-requires('Test::HTTP::Server::Simple');
+requires('Test::HTTP::Server::Simple' => '0.02');
 requires('IO::Tee');
 requires('HTTP::Server::Simple' => '0.10');
 

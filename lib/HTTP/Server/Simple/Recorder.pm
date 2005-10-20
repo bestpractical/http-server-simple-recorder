@@ -1,6 +1,6 @@
 package HTTP::Server::Simple::Recorder;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use warnings;
 use strict;
