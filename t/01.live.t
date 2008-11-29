@@ -37,6 +37,8 @@ unlink map "t/logs/rec.$_", qw/1.in 1.out 2.in 2.out/;
     my $f = "t/logs/rec.1.in";
     ok((open my $fh, "<$f"), "found a log file") or diag("error opening $f: $!");
 
+    binmode($fh);
+
     my $text = do { local $/; <$fh> };
 
     is($text, "GET / HTTP/1.1\015\012\015\012");
@@ -45,6 +47,8 @@ unlink map "t/logs/rec.$_", qw/1.in 1.out 2.in 2.out/;
 {
     my $f = "t/logs/rec.2.in";
     ok((open my $fh, "<$f"), "found a log file") or diag("error opening $f: $!");
+
+    binmode($fh);
 
     my $text = do { local $/; <$fh> };
 
